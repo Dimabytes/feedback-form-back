@@ -1,6 +1,7 @@
 {
   "name": "feedback-form-back",
   "version": "1.0.0",
+  "keywords": ["google table", "express", "api"],
   "main": "dist/index.js",
   "author": "dimabytes",
   "license": "MIT",
