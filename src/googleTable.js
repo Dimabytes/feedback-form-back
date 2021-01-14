@@ -10,13 +10,24 @@ export const init = async () => {
   });
 };
 
-const getCurrentDateTime = () => moment().tz('Europe/Moscow').format('yyyy.MM.DD HH:mm:ss');
+const defaultTimezone = 'Europe/Moscow';
+
+const getCurrentDate = () => moment().tz(defaultTimezone).format('DD/MM/yyyy');
+const getCurrentTime = () => moment().tz(defaultTimezone).format('HH:mm:ss');
 
 const addFeedback = async ({routeNumber, category, phoneNumber, geoLatitude, geoLongitude}) => {
   await doc.loadInfo();
   const sheet = doc.sheetsByIndex[0];
   await sheet.addRows([
-    [category, routeNumber, phoneNumber, geoLatitude, geoLongitude, getCurrentDateTime()]
+    [
+      category,
+      routeNumber,
+      phoneNumber,
+      geoLatitude,
+      geoLongitude,
+      getCurrentDate(),
+      getCurrentTime()
+    ]
   ]);
 };
 
